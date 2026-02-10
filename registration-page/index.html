@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הסוכן המבצע - סדנת AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Assistant', sans-serif; background-color: #ffffff; color: #000000; }
+        .fade-in { animation: fadeIn 1.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center; }
+        .modal.active { display: flex; }
+    </style>
+</head>
+<body class="p-6 md:p-24 max-w-4xl mx-auto">
+    
+    <header class="mb-20 fade-in text-center">
+        <div class="text-xs tracking-widest uppercase mb-8 opacity-50 font-bold">NON.DESIGN / Workshop 2026</div>
+        <h1 class="text-5xl md:text-7xl font-extralight tracking-tighter mb-8 leading-tight">הסוק | המבצע</h1>
+        <p class="text-xl md:text-2xl font-light text-gray-500 max-w-2xl mx-auto">
+            להפוך את ה-AI מעובד דיבור לעובד ויצור.
+        </p>
+    </header>
+
+    <main class="grid md:grid-cols-2 gap-16 fade-in items-start">
+        <section class="space-y-12">
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="w-12 h-[1px] bg-black"></span>
+                    <span class="text-sm uppercase tracking-widest font-bold font-bold">Details</span>
+                </div>
+                <p class="text-lg">יום ב', 17/02/2026 | 20:30</p>
+                <p class="text-lg font-light text-gray-400 italic">Live via Zoom</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <span class="w-12 h-[1px] bg-black"></span>
+                    <span class="text-sm uppercase tracking-widest font-bold">Community</span>
+                </div>
+                <a href="https://chat.whatsapp.com/E7LpgLb92slDuSFYtUJoSs?mode=gi_t" target="_blank" class="block w-full border border-black p-6 text-center hover:bg-black hover:text-white transition-all group">
+                    <p class="text-xs uppercase tracking-widest opacity-50 mb-2 font-bold">WhatsApp Group</p>
+                    <span class="text-lg font-light group-hover:font-medium tracking-tight">הצטרפות לקבוצת הסדנה</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <span class="w-12 h-[1px] bg-black"></span>
+                    <span class="text-sm uppercase tracking-widest font-bold">Payment & Access</span>
+                </div>
+                <div class="bg-white p-4 border border-gray-100 inline-block">
+                    <!-- QR Code for PayBox Group -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Flinks.payboxapp.com%2FqeikqS76r0b" alt="PayBox Group QR Code" class="w-48 h-48">
+                </div>
+                <p class="text-2xl font-extralight italic">55 ₪ בלבד</p>
+                <p class="text-[10px] text-gray-400 tracking-widest uppercase">Scan to Secure Payment</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <span class="w-12 h-[1px] bg-black"></span>
+                    <span class="text-sm uppercase tracking-widest font-bold">Terms & Privacy</span>
+                </div>
+                <div class="space-y-4 text-right" dir="rtl">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="terms1" class="mt-1 accent-black w-4 h-4 cursor-pointer flex-shrink-0">
+                        <label for="terms1" class="text-sm leading-relaxed font-light">
+                            אני מאשר את תנאי השימוש בסדנה. התוכן מוגן בזכויות יוצרים.
+                        </label>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="terms2" class="mt-1 accent-black w-4 h-4 cursor-pointer flex-shrink-0">
+                        <label for="terms2" class="text-sm leading-relaxed font-light">
+                            אני מתחייב לא למסור פרטים אישיים מלבד לצורך הצטרפות לקבוצת התשלום ולקבוצת הוואטסאפ.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Privacy Terms (Amendment 13) -->
+    <div id="privacyModal" class="modal px-4">
+        <div class="bg-white p-8 md:p-12 max-w-lg w-full border border-black fade-in shadow-2xl">
+            <h3 class="text-xl mb-6 font-bold tracking-tighter uppercase">Terms & Privacy</h3>
+            <div class="space-y-6 text-right" dir="rtl">
+                <div class="flex items-start gap-4 p-3 hover:bg-gray-50 transition-colors border-b border-gray-100 pb-4">
+                    <input type="checkbox" id="check1" class="mt-1 accent-black w-4 h-4 cursor-pointer">
+                    <label for="check1" class="text-sm leading-relaxed">
+                        <strong>תנאי שימוש:</strong> אני מאשר את תנאי השימוש בסדנה ומבין כי התוכן מוגן בזכויות יוצרים.
+                    </label>
+                </div>
+                <div class="flex items-start gap-4 p-3 hover:bg-gray-50 transition-colors border-b border-gray-100 pb-4">
+                    <input type="checkbox" id="check2" class="mt-1 accent-black w-4 h-4 cursor-pointer">
+                    <label for="check2" class="text-sm leading-relaxed">
+                        <strong>מאגר מידע:</strong> אני מסכים לשמירת פרטיי במאגר המידע של Non לצורך ניהול הרישום והשירות.
+                    </label>
+                </div>
+                <div class="flex items-start gap-4 p-3 hover:bg-gray-50 transition-colors">
+                    <input type="checkbox" id="check3" class="mt-1 accent-black w-4 h-4 cursor-pointer">
+                    <label for="check3" class="text-sm leading-relaxed">
+                        <strong>דיוור ישיר:</strong> אני מאשר קבלת תכנים מקצועיים, עדכונים והצעות שיווקיות מ-Non.
+                    </label>
+                </div>
+            </div>
+            <button onclick="closeModal()" class="w-full bg-black text-white py-3 mt-8 text-xs uppercase tracking-widest font-bold">
+                אישור וחזרה
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-20 opacity-30 text-[10px] uppercase tracking-widest fade-in flex flex-col md:flex-row justify-between border-t border-gray-200 pt-8 gap-4 text-center">
+        <span>The Executive Agent 2026</span>
+        <span>Crafted by NON.DESIGN Style</span>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('privacyModal');
+        function openModal() { modal.classList.add('active'); }
+        function closeModal() { modal.classList.remove('active'); }
+    </script>
+</body>
+</html>
+<!-- Last Build: יום ג׳ פבר׳ 10 2026 13:07:45 EET -->
